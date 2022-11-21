@@ -1,0 +1,18 @@
+#include <stdio.h> 
+ 
+size_t ssslen( const char *x ) 
+{ 
+    size_t l = 0; 
+    while( *x++ ) l++; 
+     
+    return l; 
+} 
+ 
+int main() 
+{ 
+    char *str = "Hello World"; 
+ 
+    printf( "String length: %zu\n", ssslen( str ) ); 
+     
+    return 0; 
+} 
