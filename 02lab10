@@ -1,0 +1,69 @@
+#include <stdio.h>
+
+float addTwoNumbers(float x, float y) {
+    return x + y;
+}
+
+float subtractTwoNumbers(float x, float y) {
+    return x - y;
+}
+
+float multiplyTwoNumbers(float x, float y) {
+    return x * y;
+}
+
+float divideTwoNumbers(float x, float y) {
+    return x / y;
+}
+
+
+int main()
+{
+    float a, b;
+    float sum, sub, mult, div;
+    char opt;
+
+    printf("Type your task: ");
+    scanf("%f%1[+-*/]%f", &a, &opt, &b);
+
+    if (opt == '+')
+        {
+        float (*ptr_sum)(float, float);
+        ptr_sum = &addTwoNumbers;
+
+        sum = (*ptr_sum)(a, b);
+        printf("Sum: %.2f\n", sum);
+        return 0;
+        }
+
+    if (opt == '-')
+        {
+        float (*ptr_sub)(float, float);
+        ptr_sub = &subtractTwoNumbers;
+
+        sub = (*ptr_sub)(a, b);
+        printf("Subtract: %.2f\n", sub);
+        return 0;
+        }
+
+    if (opt == '*')
+        {
+        float (*ptr_mult)(float, float);
+        ptr_mult = &multiplyTwoNumbers;
+
+        mult = (*ptr_mult)(a, b);
+        printf("Multiply: %.2f\n", mult);
+        return 0;
+        }
+
+    if (opt == '/')
+        {
+        float (*ptr_div)(float, float);
+        ptr_div = &divideTwoNumbers;
+
+        div = (*ptr_div)(a, b);
+        printf("Divide: %.2f\n", div);
+        return 0;
+        }
+
+}
