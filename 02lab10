@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int* toPoint( int x, int y);
+
+int main()
+    {
+    int x, y;
+    scanf("%d%d", &x, &y);
+    int *p = toPoint(x, y);
+    printf("x = %d\ny = %d\nAdress = %p\n", *p, *(p+1),p );
+    free(p);
+    }
+
+int* toPoint( int x, int y)
+    {
+    int* a = (int*)malloc(2 * sizeof(int));
+    a[0] = x;
+    a[1] = y;
+    return a;
+    }
